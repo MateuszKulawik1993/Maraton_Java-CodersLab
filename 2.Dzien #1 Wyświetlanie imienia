@@ -1,0 +1,14 @@
+
+import java.util.Scanner;
+public class MyClass {
+  public static void main(String args[]) {
+   Scanner scanner = new Scanner(System.in);
+   
+   System.out.println("Podaj swoje imie:");
+   String imie =  scanner.next();
+   System.out.println("Cześć Mateusz");
+   
+   
+     
+  }
+}
