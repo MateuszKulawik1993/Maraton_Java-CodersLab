@@ -1,0 +1,17 @@
+public class MyClass {
+  public static void main(String args[]) {
+   Scanner scanner = new Scanner(System.in);
+   
+   System.out.println("Podaj swoj wiek.");
+   int wiek= scanner.nextInt();
+   
+   if(wiek>=18){
+       System.out.println("Jestes pełnoletni");
+   }else{
+       System.out.println("Jestes niepełnoletni");
+   }
+   System.out.println("Dziekuje za podanie wieku");
+   
+     
+  }
+}
