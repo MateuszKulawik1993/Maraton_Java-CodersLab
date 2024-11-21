@@ -1,0 +1,24 @@
+
+public class MyClass {
+  public static void main(String args[]) {
+    int a = 25;
+    int b = 20;
+    double pi = 3.14;
+    boolean isItRaining = true;
+    int suma = a+b;
+    int roznica=a-b;
+    
+    String text = "Hello world";
+    System.out.println("Suma liczb a+b: " + suma);
+    System.out.println("Roznica liczb a-b: " + roznica);
+    
+    System.out.println("Czy pada deszcz:" + isItRaining);
+    System.out.println("Witaj swiecie" + text);
+    
+    
+    
+    
+    
+    
+  }
+}
