@@ -1,0 +1,15 @@
+import java.util.Random;
+
+public class main {
+  public static void main(String args[]) {
+    Random random = new Random();
+    
+    int min = 1;
+    int max = 36;
+    int liczba = random.nextInt((max-min) +1 )+ min;
+    
+    
+    
+    System.out.println("Losowa liczba od "+ min + "do" + max + ":"+liczba);
+  }
+}
