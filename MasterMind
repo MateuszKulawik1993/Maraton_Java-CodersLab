@@ -1,4 +1,4 @@
-import java.util.Scanner;
+mport java.util.Scanner;
 import java.util.Random;
 
 public class MasterMind{
@@ -13,44 +13,65 @@ public class MasterMind{
      int maxDigit= 6;
      int[] secretCode=new int[codeLength];
      int[] userCode = new int[codeLength];
+     boolean guessed = false;
      
      for(int i=0; i<codeLength; i++){
          secretCode[i]=random.nextInt(maxDigit)+1;
      }
      
-     
-     
-     System.out.println("Wprowadz swoja próbę:");
-     String guess = scanner.nextLine();
-     
-    
-     
-     try{
-          if(guess.length() != codeLength){
-             throw new NumberFormatException();
-         }
-         
-         for(int i =0; i<codeLength; i++){
-             userCode[i]= Character.getNumericValue(guess.charAt(i));
-             if(userCode[i]<1 || userCode[i]>maxDigit ){
+         while(guessed ==false){
+          System.out.println("Wprowadz swoja próbę:");
+         String guess = scanner.nextLine();
+          try{
+              if(guess.length() != codeLength){
                  throw new NumberFormatException();
-                }
+             }
+             
+             for(int i =0; i<codeLength; i++){
+                 userCode[i]= Character.getNumericValue(guess.charAt(i));
+                 if(userCode[i]<1 || userCode[i]>maxDigit ){
+                     throw new NumberFormatException();
+                    }
+             }
+             
+         }catch(NumberFormatException e){
+             System.out.println("Wprowadz liczby od 1 do " + maxDigit + ".");
          }
+         int identicalButNotInPlace = 0;
+         int identicalAndInPlace=0;
+         boolean[] countedInUserCode = new boolean[codeLength];
+         boolean[] countedInSecretCode = new boolean[codeLength];
          
-     }catch(NumberFormatException e){
-         System.out.println("Wprowadz liczby od 1 do " + maxDigit + ".");
-     }
+         for(int i =0; i<codeLength;i++){
+             if(userCode[i]==secretCode[i]){
+                 identicalAndInPlace++;
+                 countedInUserCode[i]=true;
+                 countedInSecretCode[i]=true;
+             
+             }
+         }
+         for(int i=0; i<codeLength;i++){
+             if(countedInUserCode[i] !=true){
+                 for(int j=0;j<codeLength;j++){
+                     if(countedInSecretCode[i]==false && userCode[i]==secretCode[j]){
+                         identicalButNotInPlace++;
+                         countedInUserCode[i]=true;
+                         countedInSecretCode[i]=true;
+                     }
+                 }
+             }
+         }
+         if(identicalAndInPlace==codeLength){
+             System.out.println("Gratulacje- kod został odgadniety ");
+             guessed =true;
+         }else{
+             System.out.println("Poprawne cyfry na poprawonej pozycji:" +identicalAndInPlace );
+              System.out.println("Poprawne cyfry na niepoprawnych pozycjach:" +identicalButNotInPlace );
+         }
+         }
    
      
     scanner.close();
-    
-    
-    
-    
-    
-    
-    
-    
     
     }
 }
