@@ -1,0 +1,56 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class MasterMind{
+    public static void main(String[] args){
+     System.out.println("Witaj w grze MasterMind!");
+     System.out.println("Zgadnij 4 cyfrowy kod składający sie z liczb od 1 do 6");
+     
+     Scanner scanner = new Scanner(System.in);
+     Random random= new Random();
+     
+     int codeLength=4;
+     int maxDigit= 6;
+     int[] secretCode=new int[codeLength];
+     int[] userCode = new int[codeLength];
+     
+     for(int i=0; i<codeLength; i++){
+         secretCode[i]=random.nextInt(maxDigit)+1;
+     }
+     
+     
+     
+     System.out.println("Wprowadz swoja próbę:");
+     String guess = scanner.nextLine();
+     
+    
+     
+     try{
+          if(guess.length() != codeLength){
+             throw new NumberFormatException();
+         }
+         
+         for(int i =0; i<codeLength; i++){
+             userCode[i]= Character.getNumericValue(guess.charAt(i));
+             if(userCode[i]<1 || userCode[i]>maxDigit ){
+                 throw new NumberFormatException();
+                }
+         }
+         
+     }catch(NumberFormatException e){
+         System.out.println("Wprowadz liczby od 1 do " + maxDigit + ".");
+     }
+   
+     
+    scanner.close();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+}
