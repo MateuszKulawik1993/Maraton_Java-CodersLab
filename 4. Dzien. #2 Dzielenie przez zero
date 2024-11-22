@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class main {
+  public static void main(String args[]) {
+      Scanner scanner = new Scanner(System.in);
+     
+     
+     try{ 
+     System.out.println("Oblicz:");
+      
+      System.out.println("Podaj pierwsza liczbe:");
+      int a = scanner.nextInt();
+     
+     System.out.println("Podaj druga liczbe:");
+     int b = scanner.nextInt();
+     
+     int wynik = a/b;
+     System.out.println("Wynik dzielenia to:"+ wynik);
+     }catch(ArithmeticException e) {
+        System.out.println("Nie można dzielić przez 0. Podaj inna liczbę.");
+     }
+        
+    }
+}
